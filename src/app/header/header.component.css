@@ -1,3 +1,26 @@
+/*cw#1/4 task*/
 .header{
   background-color: pink;
+}
+/*cw#1/4 task*/
+
+.black-mode {
+  background-color: darkslategrey;
+  color: yellow;
+}
+
+.pink-mode {
+  background-color: palevioletred;
+}
+
+.saveable {
+  font-size: larger;
+  background-color: bisque;
+}
+.modified{
+  font-style: italic;
+  background-color:cadetblue;
+}
+.special {
+  background-color: lightblue;
 }
