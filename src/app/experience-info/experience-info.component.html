@@ -1,5 +1,5 @@
 <div class="work-container">
-  <div class="h4-container">
+  <div class="h4-container" [ngClass]="isColourWorkTypeChanged()">
     <h4>{{experienceInfo.position}}</h4>
     <button class="btn-work">{{experienceInfo.workType}}</button>
   </div>
