@@ -9,13 +9,24 @@
       First name cannot be longer than 30 characters.
     </div>
     <div *ngIf="profileForm.get('firstName')?.errors?.alphabetic">
-      First name can only contain alphabetic characters.
+      First name can only contain Latin characters.
     </div>
   </div>
   <br>
 
   <label for="name">Last name: </label>
 <input id="name" type="text" formControlName="lastName">
+<div *ngIf="profileForm.get('lastName')?.invalid && (profileForm.get('lastName')?.dirty || profileForm.get('lastName')?.touched)">
+  <div *ngIf="profileForm.get('lastName')?.errors?.required">
+    Last name is required.
+  </div>
+  <div *ngIf="profileForm.get('lastName')?.errors?.maxlength">
+    Last name cannot be longer than 50 characters.
+  </div>
+  <div *ngIf="profileForm.get('lastName')?.errors?.alphabetic">
+    Last name can only contain Latin characters.
+  </div>
+</div>
 <br>
 
 <label for="name">Email: </label>
@@ -24,6 +35,17 @@
 
 <label for="name">Phone: </label>
 <input id="name" type="tel" formControlName="phone">
+<div *ngIf="profileForm.get('lastName')?.invalid && (profileForm.get('lastName')?.dirty || profileForm.get('lastName')?.touched)">
+  <div *ngIf="profileForm.get('firstName')?.errors?.required">
+    Last name is required.
+  </div>
+  <div *ngIf="profileForm.get('firstName')?.errors?.maxlength">
+    First name cannot be longer than 50 characters.
+  </div>
+  <div *ngIf="profileForm.get('firstName')?.errors?.alphabetic">
+    First name can only contain Alphabetic characters.
+  </div>
+</div>
 <br>
 <div>
   <select formControlName="options">
@@ -38,6 +60,17 @@
 
 <div>
   <input type="date" formControlName="date">
+  <div *ngIf="profileForm.get('lastName')?.invalid && (profileForm.get('lastName')?.dirty || profileForm.get('lastName')?.touched)">
+    <div *ngIf="profileForm.get('firstName')?.errors?.required">
+      Last name is required.
+    </div>
+    <div *ngIf="profileForm.get('firstName')?.errors?.maxlength">
+      First name cannot be longer than 50 characters.
+    </div>
+    <div *ngIf="profileForm.get('firstName')?.errors?.alphabetic">
+      First name can only contain Alphabetic characters.
+    </div>
+  </div>
 </div>
 
 <button [disabled]="profileForm.invalid" type="submit">Submit</button>

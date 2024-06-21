@@ -12,7 +12,7 @@ export class ILoveYouFormComponent {
   profileForm = new FormGroup(
     {
     firstName: new FormControl('', [Validators.required, Validators.maxLength(30), alphabeticValidator()]),
-    lastName: new FormControl(''),
+    lastName: new FormControl('', [Validators.required, Validators.maxLength(50), alphabeticValidator()]),
     email: new FormControl(''),
     phone: new FormControl(''),
     options: new FormControl(''),
