@@ -1,0 +1,44 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <label for="name">Name: </label>
+  <input id="name" type="text" formControlName="firstName">
+  <div *ngIf="profileForm.get('firstName')?.invalid && (profileForm.get('firstName')?.dirty || profileForm.get('firstName')?.touched)">
+    <div *ngIf="profileForm.get('firstName')?.errors?.required">
+      First name is required.
+    </div>
+    <div *ngIf="profileForm.get('firstName')?.errors?.maxlength">
+      First name cannot be longer than 30 characters.
+    </div>
+    <div *ngIf="profileForm.get('firstName')?.errors?.alphabetic">
+      First name can only contain alphabetic characters.
+    </div>
+  </div>
+  <br>
+
+  <label for="name">Last name: </label>
+<input id="name" type="text" formControlName="lastName">
+<br>
+
+<label for="name">Email: </label>
+<input id="name" type="email" formControlName="email">
+<br>
+
+<label for="name">Phone: </label>
+<input id="name" type="tel" formControlName="phone">
+<br>
+<div>
+  <select formControlName="options">
+    <option>Front end dev</option>
+    <option>Back end dev</option>
+    <option> Manual QA</option>
+    <option> Automated QA</option>
+    <option>DevOps</option>
+    <option>SEO</option>
+  </select>
+</div>
+
+<div>
+  <input type="date" formControlName="date">
+</div>
+
+<button [disabled]="profileForm.invalid" type="submit">Submit</button>
+</form>

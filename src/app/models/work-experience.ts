@@ -5,7 +5,6 @@ export interface WorkExperience{
   workType : WorkType;
   location: string;
   company: string;
-
   dateEmployment: string;
 }
 

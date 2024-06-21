@@ -1,3 +1,17 @@
 .header{
   background-color: pink;
 }
+
+.saveable{
+  background-color: black;
+}
+
+.special{
+font-size: large;
+}
+
+.modified{
+  font-style: italic;
+  color: yellow;
+}
+

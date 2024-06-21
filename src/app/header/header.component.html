@@ -1,4 +1,13 @@
 <div class="header">
   <p>header works!</p>
+  <p>Icon</p>
+  <ul *ngIf="isDisplay">
+    <li>First</li>
+    <li>Sec</li>
+    <li (click)="onClick2()">Third </li>
+    <li (click)="onClick()">Fourth</li>
+  </ul>
 </div>
+<input [(ngModel)]="title">
+
 

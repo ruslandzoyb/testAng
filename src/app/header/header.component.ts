@@ -6,10 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
-
+  public isDisplay = true;
+  title = 'Initial set';
   ngOnInit(): void {
+
   }
+
+  onClick(){
+    console.log(this.title);
+  }
+
+  onClick2(){
+    this.title = 'This was changed from click 2'
+  }
+
+
 
 }

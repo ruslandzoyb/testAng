@@ -11,6 +11,9 @@ import { StackComponent } from './stack/stack.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ExperienceInfoComponent } from './experience-info/experience-info.component';
 import { ProjectCardComponent } from './project-card/project-card.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ILoveYouFormComponent } from './ilove-you-form/ilove-you-form.component';
 
 
 @NgModule({
@@ -25,10 +28,14 @@ import { ProjectCardComponent } from './project-card/project-card.component';
     ProjectsComponent,
     ExperienceInfoComponent,
     ProjectCardComponent,
+    ILoveYouFormComponent
 
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
