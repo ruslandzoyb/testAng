@@ -1,0 +1,19 @@
+.red-warning {
+    color: rgba(245, 208, 0, 0.76);
+}
+.mg-2 {
+  margin-top: 1em;
+}
+    
+form {
+  margin: 0 auto;
+  margin-top: 8em;
+  padding-top: 4em;
+  text-align: center;
+  height: 60%;
+  width: 60%;
+  color: rgb(149, 252, 229);
+  background-color: rgba(0, 89, 92, 0.397);
+  border-radius: 4em;
+  box-shadow: -4px 4px rgba(255, 187, 0, 0.637);
+}
