@@ -17,9 +17,9 @@ export class ILoveYouFormComponent {
   profileForm = new FormGroup({
     firstName: new FormControl('', [Validators.required, Validators.maxLength(30), alphabeticValidator()]),
     lastName: new FormControl('', [Validators.required, Validators.maxLength(50), alphabeticValidator()]),
-    email: new FormControl(''),
+    email: new FormControl('',[Validators.required, Validators.email]),
     phone: new FormControl('', [Validators.required, phoneValidator()]),
-    options: new FormControl(''),
+    options: new FormControl('', [Validators.required]),
     date: new FormControl('', [Validators.required, dateValidator()]),
     time: new FormControl('', [Validators.required])
   });
