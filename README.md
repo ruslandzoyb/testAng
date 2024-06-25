@@ -1,3 +1,163 @@
+
+## Syllabus
+
+- [`Purpose`](#purpose)
+- [`Task 1`](#task1)
+- [`Task 2`](#task2)
+- [`TestAng Docs` ->](#testang)
+
+
+## Purpose
+-> This branch is intended to be used by the Mentee to complete the tasks related to Events Angular topic and by the Mentor to check it out.
+
+## Task 1
+**Basic Event Binding**
+
+### Objective: 
+Understand and implement basic event binding in Angular.
+
+### Instructions:
+1. Read the articles on (Event Handling in Angular)[https://medium.com/@theriyasharma24/event-handling-in-angular-a5854a61b4a5] and (Angular Event Binding)[https://angular.dev/guide/templates/event-binding].
+
+2. Create a new Angular project if you don't have one already.
+   2.1. Use the Angular CLI to set up the project: 
+   `ng new event-handling-demo`
+   `cd event-handling-demo`
+
+3. Task Steps: 
+   3.1. Create a new component named ClickCounter
+   `ng generate component ClickCounter`
+
+   3.2. In the ClickCounterComponent, create a button that increments a counter every time it is clicked.
+   3.3. Display the counter value on the screen.
+4. Implementation Details:
+   4.1. Template (HTML):
+   ```html
+   <div>
+   <h1>Click Counter</h1>
+   <button (click)="incrementCounter()">Click me!</button>
+   <p>You have clicked the button {{ counter }} times.</p>
+   </div>
+   ```
+
+
+   4.2. Component (TypeScript):
+   ```ts
+   import { Component } from '@angular/core';
+   @Component({
+    selector: 'app-click-counter',
+    templateUrl: './click-counter.component.html',
+    styleUrls: ['./click-counter.component.css']
+    })
+    export class ClickCounterComponent {
+        counter = 0;
+        incrementCounter() {
+            this.counter++;
+            }
+        }
+    ```
+       
+
+    4.3. CSS (optional):
+   ```css
+   button {
+    padding: 10px 20px;
+    font-size: 16px;
+    }
+    ```
+
+    4.4. Run the project to see the result:
+   `ng serve`
+
+#### Expected Output:
+When you click the button, the **counter should increment**, and the updated count should be displayed on the screen.
+
+
+## Task 2
+**Custom Event Handling with the Observer Pattern**
+-> This branch is intended to be used by the Mentee to complete the tasks and by the Mentor to check
+
+### Objective: 
+Understand and implement custom event handling using the Observer pattern.
+
+### Instructions:
+1. Read the articles on (Angular Event Binding)[https://angular.dev/guide/templates/event-binding] and the (Observer Pattern)[https://refactoring.guru/uk/design-patterns/observer].
+
+2. Create a new component named CustomEvent:
+   `ng generate component CustomEvent`
+
+3. Task Steps: 
+   3.1. In the CustomEventComponent, create two child components: `Publisher` and `Subscriber`.
+
+   3.2. The `Publisher` component should have a button that emits an event.
+
+   3.3. The `Subscriber` component should listen for this event and update a message accordingly.
+
+4. Implementation Details:
+   4.1. Publisher Component:
+   4.1.1. Template (HTML):
+   ```html
+   <button (click)="emitEvent()">Emit Event</button>
+   ```
+
+   4.1.2. Component (TypeScript):
+   ```ts
+  import { Component, EventEmitter, Output } from '@angular/core';
+  
+  @Component({
+  selector: 'app-publisher',
+  templateUrl: './publisher.component.html'
+  })
+  
+  export class PublisherComponent {
+  @Output() customEvent = new EventEmitter<void>();
+
+  emitEvent() {
+    this.customEvent.emit();
+    }
+  }
+  ```
+    
+    4.2. Subscriber Component:
+    4.2.1. Template (HTML):
+   ```html
+   <p>{{ message }}</p>
+   ```
+
+   4.2.2. Component (TypeScript):
+   ```ts
+  import { Component, OnInit } from '@angular/core';
+  
+  @Component({
+  selector: 'app-subscriber',
+  templateUrl: './subscriber.component.html'
+  })
+  
+  export class SubscriberComponent implements OnInit {
+  message = 'No event received';
+
+  ngOnInit(): void {}
+
+  onEventReceived() {
+    this.message = 'Event received!';
+    }
+  }
+  ```
+
+  4.3. Subscriber Component:
+    4.3.1. Template (HTML):
+   ```html
+   <app-publisher (customEvent)="subscriber.onEventReceived()"></app-publisher>
+   <app-subscriber #subscriber></app-subscriber>
+   ```
+
+   4.4. Run the project to see the result:
+   `ng serve`
+
+#### Expected Output:
+When the button in the `Publisher` component is clicked, the message in the `Subscriber` component should update to "Event received!".
+
+
 # TestAng
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.18.
