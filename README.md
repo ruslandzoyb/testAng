@@ -1,10 +1,10 @@
 
 ## Syllabus
 
-- [`Purpose`](#purpose)
-- [`Task 1`](#task1)
-- [`Task 2`](#task2)
-- [`TestAng Docs` ->](#testang)
+- [Purpose](#purpose)
+- [Task 1](#task1)
+- [Task 2](#task2)
+- [TestAng Docs ->](#testang)
 
 
 ## Purpose
@@ -17,20 +17,19 @@
 Understand and implement basic event binding in Angular.
 
 ### Instructions:
-1. Read the articles on (Event Handling in Angular)[https://medium.com/@theriyasharma24/event-handling-in-angular-a5854a61b4a5] and (Angular Event Binding)[https://angular.dev/guide/templates/event-binding].
+1. **Read the articles** on [https://medium.com/@theriyasharma24/event-handling-in-angular-a5854a61b4a5](Event Handling in Angular) and [https://angular.dev/guide/templates/event-binding](Angular Event Binding).
 
-2. Create a new Angular project if you don't have one already.
-   2.1. Use the Angular CLI to set up the project: 
-   `ng new event-handling-demo`
+2. **Create a new Angular project** if you don't have one already.<br>
+   2.1. Use the Angular CLI to set up the project:<br>
    `cd event-handling-demo`
 
-3. Task Steps: 
-   3.1. Create a new component named ClickCounter
+3. **Task Steps:**<br>
+   3.1. Create a new component named ClickCounter<br>
    `ng generate component ClickCounter`
 
-   3.2. In the ClickCounterComponent, create a button that increments a counter every time it is clicked.
+   3.2. In the ClickCounterComponent, create a button that increments a counter every time it is clicked.<br>
    3.3. Display the counter value on the screen.
-4. Implementation Details:
+4. **Implementation Details:**<br>
    4.1. Template (HTML):
    ```html
    <div>
@@ -66,10 +65,10 @@ Understand and implement basic event binding in Angular.
     }
     ```
 
-    4.4. Run the project to see the result:
+    4.4. Run the project to see the result:<br>
    `ng serve`
 
-#### Expected Output:
+#### **Expected Output**:
 When you click the button, the **counter should increment**, and the updated count should be displayed on the screen.
 
 
@@ -81,20 +80,20 @@ When you click the button, the **counter should increment**, and the updated cou
 Understand and implement custom event handling using the Observer pattern.
 
 ### Instructions:
-1. Read the articles on (Angular Event Binding)[https://angular.dev/guide/templates/event-binding] and the (Observer Pattern)[https://refactoring.guru/uk/design-patterns/observer].
+1. Read the articles on [https://angular.dev/guide/templates/event-binding](Angular Event Binding) and the [https://refactoring.guru/uk/design-patterns/observer](Observer Pattern).
 
-2. Create a new component named CustomEvent:
+2. Create a new component named CustomEvent:<br>
    `ng generate component CustomEvent`
 
-3. Task Steps: 
+3. **Task Steps:**<br>
    3.1. In the CustomEventComponent, create two child components: `Publisher` and `Subscriber`.
 
    3.2. The `Publisher` component should have a button that emits an event.
 
    3.3. The `Subscriber` component should listen for this event and update a message accordingly.
 
-4. Implementation Details:
-   4.1. Publisher Component:
+4. **Implementation Details:**<br>
+   4.1. Publisher Component:<br>
    4.1.1. Template (HTML):
    ```html
    <button (click)="emitEvent()">Emit Event</button>
@@ -105,21 +104,19 @@ Understand and implement custom event handling using the Observer pattern.
   import { Component, EventEmitter, Output } from '@angular/core';
   
   @Component({
-  selector: 'app-publisher',
-  templateUrl: './publisher.component.html'
-  })
-  
-  export class PublisherComponent {
-  @Output() customEvent = new EventEmitter<void>();
-
-  emitEvent() {
-    this.customEvent.emit();
-    }
-  }
-  ```
+    selector: 'app-publisher',
+    templateUrl: './publisher.component.html'
+    })
+    export class PublisherComponent {
+        @Output() customEvent = new EventEmitter<void>();
+        emitEvent() {
+            this.customEvent.emit();
+            }
+            }        
+    ```
     
-    4.2. Subscriber Component:
-    4.2.1. Template (HTML):
+    4.2. **Subscriber Component:**<br>
+    4.2.1. Template (HTML):<br>
    ```html
    <p>{{ message }}</p>
    ```
@@ -144,14 +141,14 @@ Understand and implement custom event handling using the Observer pattern.
   }
   ```
 
-  4.3. Subscriber Component:
+  4.3. **Subscriber Component:**<br>
     4.3.1. Template (HTML):
    ```html
    <app-publisher (customEvent)="subscriber.onEventReceived()"></app-publisher>
    <app-subscriber #subscriber></app-subscriber>
    ```
 
-   4.4. Run the project to see the result:
+   4.4. Run the project to see the result:<br>
    `ng serve`
 
 #### Expected Output:
