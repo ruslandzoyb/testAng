@@ -10,7 +10,7 @@
 ## Purpose
 -> This branch is intended to be used by the Mentee to complete the tasks related to Events Angular topic and by the Mentor to check it out.
 
-## Task 1
+## Task1
 **Basic Event Binding**
 
 ### Objective: 
@@ -72,7 +72,7 @@ Understand and implement basic event binding in Angular.
 When you click the button, the **counter should increment**, and the updated count should be displayed on the screen.
 
 
-## Task 2
+## Task2
 **Custom Event Handling with the Observer Pattern**
 -> This branch is intended to be used by the Mentee to complete the tasks and by the Mentor to check
 
