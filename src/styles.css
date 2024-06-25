@@ -5,5 +5,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 html {
     overflow: hidden;
-    background-color: #000000e3;
+    background-color: #0000009c;
+    text-align: center;
+   padding-top: 14em;
 }

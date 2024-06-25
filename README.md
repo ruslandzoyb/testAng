@@ -80,7 +80,7 @@ When you click the button, the **counter should increment**, and the updated cou
 Understand and implement custom event handling using the Observer pattern.
 
 ### Instructions:
-1. Read the articles on [https://angular.dev/guide/templates/event-binding](Angular Event Binding) and the [https://refactoring.guru/uk/design-patterns/observer](Observer Pattern).
+1. Read the articles on [Angular Event Binding](https://angular.dev/guide/templates/event-binding) and the [Observer Pattern](https://refactoring.guru/uk/design-patterns/observer).
 
 2. Create a new component named CustomEvent:<br>
    `ng generate component CustomEvent`
@@ -93,7 +93,7 @@ Understand and implement custom event handling using the Observer pattern.
    3.3. The `Subscriber` component should listen for this event and update a message accordingly.
 
 4. **Implementation Details:**<br>
-   4.1. Publisher Component:<br>
+   4.1. **Publisher Component:**<br>
    4.1.1. Template (HTML):
    ```html
    <button (click)="emitEvent()">Emit Event</button>
@@ -140,7 +140,7 @@ Understand and implement custom event handling using the Observer pattern.
             }
     ```
     
-    4.3. **Subscriber Component:**<br>
+    4.3. **CustomEvent Component Template:**<br>
     4.3.1. Template (HTML):
     ```html
    <app-publisher (customEvent)="subscriber.onEventReceived()"></app-publisher>
