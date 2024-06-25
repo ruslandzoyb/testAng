@@ -101,23 +101,19 @@ Understand and implement custom event handling using the Observer pattern.
 
    4.1.2. Component (TypeScript):
    ```ts
-  import { Component, OnInit } from '@angular/core';
-  
-  @Component({
-  selector: 'app-subscriber',
-  templateUrl: './subscriber.component.html'
-  })
-  
-  export class SubscriberComponent implements OnInit {
-  message = 'No event received';
-
-  ngOnInit(): void {}
-
-  onEventReceived() {
-    this.message = 'Event received!';
-    }
-  }
-  ```
+   import { Component } from '@angular/core';
+   @Component({
+    selector: 'app-click-counter',
+    templateUrl: './click-counter.component.html',
+    styleUrls: ['./click-counter.component.css']
+    })
+    export class ClickCounterComponent {
+        counter = 0;
+        incrementCounter() {
+            this.counter++;
+            }
+        }
+    ```
     
     4.2. **Subscriber Component:**<br>
     4.2.1. Template (HTML):<br>
