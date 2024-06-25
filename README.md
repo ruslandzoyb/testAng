@@ -106,20 +106,21 @@ Understand and implement custom event handling using the Observer pattern.
    @Component({
     selector: 'app-publisher',
     templateUrl: './publisher.component.html'
-  })
-  export class PublisherComponent {
-    @Output() customEvent = new EventEmitter<void>();
-    
-    emitEvent() {
-        this.customEvent.emit();
-        }
-    }
-  ```
-  4.2. **Subscriber Component:**<br>
-  4.2.1. Template (HTML):<br>
-   ```html
+    })
+    export class PublisherComponent {
+        @Output() customEvent = new EventEmitter<void>();
+        
+        emitEvent() {
+            this.customEvent.emit();
+            }
+            }
+    ```
+
+    4.2. **Subscriber Component:**<br>
+    4.2.1. Template (HTML):<br>
+    ```html
    <p>{{ message }}</p>
-   ```
+    ```
    
    4.2.2. Component (TypeScript):
    ```ts
@@ -127,21 +128,21 @@ Understand and implement custom event handling using the Observer pattern.
    @Component({
     selector: 'app-subscriber',
     templateUrl: './subscriber.component.html'
-  })
-  export class SubscriberComponent implements OnInit {
-    message = 'No event received';
+    })
     
-    ngOnInit(): void {}
-    
-    onEventReceived() {
-        this.message = 'Event received!';
-        }
-    }
+    export class SubscriberComponent implements OnInit {
+        message = 'No event received';
+        ngOnInit(): void {}
+        
+        onEventReceived() {
+            this.message = 'Event received!';
+            }
+            }
     ```
     
     4.3. **Subscriber Component:**<br>
     4.3.1. Template (HTML):
-   ```html
+    ```html
    <app-publisher (customEvent)="subscriber.onEventReceived()"></app-publisher>
    <app-subscriber #subscriber></app-subscriber>
    ```
