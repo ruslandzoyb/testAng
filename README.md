@@ -17,7 +17,7 @@
 Understand and implement basic event binding in Angular.
 
 ### Instructions:
-1. **Read the articles** on [https://medium.com/@theriyasharma24/event-handling-in-angular-a5854a61b4a5](Event Handling in Angular) and [https://angular.dev/guide/templates/event-binding](Angular Event Binding).
+1. **Read the articles** on [Event Handling in Angular](https://medium.com/@theriyasharma24/event-handling-in-angular-a5854a61b4a5) and [Angular Event Binding](https://angular.dev/guide/templates/event-binding).
 
 2. **Create a new Angular project** if you don't have one already.<br>
    2.1. Use the Angular CLI to set up the project:<br>
@@ -101,18 +101,19 @@ Understand and implement custom event handling using the Observer pattern.
 
    4.1.2. Component (TypeScript):
    ```ts
-   import { Component } from '@angular/core';
+   import { Component, EventEmitter, Output } from '@angular/core';
+   
    @Component({
-    selector: 'app-click-counter',
-    templateUrl: './click-counter.component.html',
-    styleUrls: ['./click-counter.component.css']
-    })
-    export class ClickCounterComponent {
-        counter = 0;
-        incrementCounter() {
-            this.counter++;
-            }
-        }
+  selector: 'app-publisher',
+  templateUrl: './publisher.component.html'
+  })
+  export class PublisherComponent {
+  @Output() customEvent = new EventEmitter<void>();
+
+  emitEvent() {
+    this.customEvent.emit();
+    }
+  }
     ```
     
     4.2. **Subscriber Component:**<br>
@@ -123,18 +124,20 @@ Understand and implement custom event handling using the Observer pattern.
 
    4.2.2. Component (TypeScript):
    ```ts
-   import { Component } from '@angular/core';
+   import { Component, OnInit } from '@angular/core';
    @Component({
-    selector: 'app-click-counter',
-    templateUrl: './click-counter.component.html',
-    styleUrls: ['./click-counter.component.css']
-    })
-    export class ClickCounterComponent {
-        counter = 0;
-        incrementCounter() {
-            this.counter++;
-            }
-        }
+  selector: 'app-subscriber',
+  templateUrl: './subscriber.component.html'
+  })
+  export class SubscriberComponent implements OnInit {
+  message = 'No event received';
+
+  ngOnInit(): void {}
+
+  onEventReceived() {
+    this.message = 'Event received!';
+    }
+  }
     ```
 
   4.3. **Subscriber Component:**<br>
