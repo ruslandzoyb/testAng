@@ -112,7 +112,7 @@ Understand and implement custom event handling using the Observer pattern.
         
         emitEvent() {
             this.customEvent.emit();
-            }
+                }
             }
     ```
 
@@ -136,7 +136,7 @@ Understand and implement custom event handling using the Observer pattern.
         
         onEventReceived() {
             this.message = 'Event received!';
-            }
+                }
             }
     ```
     
