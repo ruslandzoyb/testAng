@@ -66,10 +66,10 @@ Practice advanced event handling with parent-child component communication.
     4.2. **UserDetail Component:**<br>
     4.2.1. Template (HTML):<br>
     ```html
-   <div *ngIf="user">
-    <h2>{{ user.name }}'s Details</h2>
-    <p>Age: {{ user.age }}</p>
-  </div>
+    <div *ngIf="user">
+        <h2>{{ user.name }}'s Details</h2>
+        <p>Age: {{ user.age }}</p>
+        </div>
     ```
    
    4.2.2. Component (TypeScript):
@@ -77,22 +77,19 @@ Practice advanced event handling with parent-child component communication.
    import { Component, Input } from '@angular/core';
    
    @Component({
-    selector: 'app-user-detail',
-    templateUrl: './user-detail.component.html'
+    selector: 'app-user-detail',templateUrl: './user-detail.component.html'
     })
     
     export class UserDetailComponent {
         @Input() user: any;
-    }
+        }
     ```
     
     4.3. **Parent Component:**<br>
     4.3.1. Template (HTML):
     ```html
-   <app-user-list (userSelected)="onUserSelected($event)">
-   </app-user-list>
-   <app-user-detail [user]="selectedUser">
-   </app-user-detail>
+   <app-user-list (userSelected)="onUserSelected($event)"></app-user-list>
+   <app-user-detail [user]="selectedUser"></app-user-detail>
    ```
 
    4.3.2. Component (TypeScript):
