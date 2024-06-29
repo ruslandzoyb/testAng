@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CustomEventComponent } from './custom-event.component';
+import { ChildComponent } from './child.component';
 
-describe('CustomEventComponent', () => {
-  let component: CustomEventComponent;
-  let fixture: ComponentFixture<CustomEventComponent>;
+describe('ChildComponent', () => {
+  let component: ChildComponent;
+  let fixture: ComponentFixture<ChildComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CustomEventComponent]
+      imports: [ChildComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(CustomEventComponent);
+    fixture = TestBed.createComponent(ChildComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

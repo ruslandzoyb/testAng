@@ -1,21 +1,27 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { ClickCounterComponent } from './task1/click-counter/click-counter.component'; 
-import { CustomEventComponent } from './task2/custom-event/custom-event.component';
-import { PublisherComponent } from './task2/custom-event/publisher/publisher.component';
-import { SubscriberComponent } from './task2/custom-event/subscriber/subscriber.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { InputButtonComponent } from './task1/input-button-component/input-button-component.component';
+import { ChildComponent } from './task2/child-component/child-component.component';
+import { ParentComponentComponent } from './task2/parent-component/parent-component.component';
+import { ChildComponentOfTwoWayBinding } from './task3/child/child.component';
+import { ParentComponentOfTwoWayBinding } from './task3/parent/parent.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ClickCounterComponent,
-    CustomEventComponent,
-    PublisherComponent,
-    SubscriberComponent
+    InputButtonComponent,
+    ChildComponent,
+    ParentComponentComponent,
+    ChildComponentOfTwoWayBinding,
+    ParentComponentOfTwoWayBinding
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule, 
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

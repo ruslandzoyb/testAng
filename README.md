@@ -1,228 +1,28 @@
 
 ## Syllabus
 
-- [Purpose](#purpose)
 - [Task 1](#task1)
 - [Task 2](#task2)
 - [TestAng Docs ->](#testang)
 
-
-## Purpose
--> This branch is intended to be used by the Mentor to complete the tasks related to Events Angular topic and by the Mentee to check it out.
-
 ## Task1
-**Advanced Event Handling with Inputs and Outputs**
-
-### Objective: 
-Practice advanced event handling with parent-child component communication.
-
-### Instructions:
-1. **Read the articles** on [Event Handling in Angular](https://medium.com/@theriyasharma24/event-handling-in-angular-a5854a61b4a5) and [Angular Event Binding](https://angular.dev/guide/templates/event-binding).
-
-2. **Practice advanced event handling** with parent-child component communication.<br>
-   `ng generate component UserDetail`
-
-3. **Task Steps:**<br>
-   3.1. `The UserDetailComponent` should accept a user object as an input.<br>
-
-   3.2. Create another component named `UserList` that contains a list of users.<br>
-  
-   3.3. When a user in the list is clicked, emit an event to display the user details in the `UserDetailComponent`.
-
-4. **Implementation Details:**<br>
-   4.1. **UserList Component:**<br>
-   4.1.1. Template (HTML):
-   ```html
-   <ul>
-    <li *ngFor="let user of users" (click)="selectUser(user)">
-    {{ user.name }}
-    </li>
-    </ul>
-   ```
-
-   4.1.2. Component (TypeScript):
-   ```typescript
-   import { Component, EventEmitter, Output } from '@angular/core';
-   
-   @Component({
-    selector: 'app-user-list',
-    templateUrl: './user-list.component.html'
-    })
-    export class UserListComponent {
-        users = [
-            { name: 'User 1', age: 25 },
-            { name: 'User 2', age: 30 },
-            { name: 'User 3', age: 35 }
-            ];
-            
-            @Output() userSelected = new EventEmitter<any>();
-            
-            selectUser(user: any) {
-                this.userSelected.emit(user);
-                }
-            }         
-    ```
-
-    4.2. **UserDetail Component:**<br>
-    4.2.1. Template (HTML):<br>
-    ```html
-    <div *ngIf="user">
-        <h2>{{ user.name }}'s Details</h2>
-        <p>Age: {{ user.age }}</p>
-        </div>
-    ```
-   
-   4.2.2. Component (TypeScript):
-   ```ts
-   import { Component, Input } from '@angular/core';
-   
-   @Component({
-    selector: 'app-user-detail',templateUrl: './user-detail.component.html'
-    })
-    
-    export class UserDetailComponent {
-        @Input() user: any;
-        }
-    ```
-    
-    4.3. **Parent Component:**<br>
-    4.3.1. Template (HTML):
-    ```html
-   <app-user-list (userSelected)="onUserSelected($event)"></app-user-list>
-   <app-user-detail [user]="selectedUser"></app-user-detail>
-   ```
-
-   4.3.2. Component (TypeScript):
-   ```ts
-   import { Component } from '@angular/core';
-   
-   @Component({
-    selector: 'app-parent',
-    templateUrl: './parent.component.html'
-    })
-    
-    export class ParentComponent {
-        selectedUser: any;
-        
-        onUserSelected(user: any) {
-            this.selectedUser = user;
-            }
-        }
-    ```
-
-   4.4. Run the project to see the result:<br>
-   `ng serve`
-
-
-#### **Expected Output**:
-When a user in the **UserList** component is clicked, their details should be displayed in the **UserDetail** component.
-
+Create an input and a button.
+### Description
+Button is disabled until a text is entered in the input field. When a text is entered, the button becomes enabled and can be clicked, which outputs the text to the console.
 
 ## Task2
-**Custom Event Handling with the Observer Pattern**
--> This branch is intended to be used by the Mentor to complete the tasks related to Events Angular topic and by the Mentee to check it out.
+Create ParentComponent and ChildComponent.
+### Description
+Choose a name for the components yourself. 
+At the child level, create an input for text, and when text is entered, the child should emit the text to the parent. 
 
-### Objective: 
-Implement a simple Observer pattern using Angular services.
+Create a paragraph at the parent level that will display the text from the child input.
 
-### Instructions:
-1. Read the articles on [Angular Event Binding](https://angular.dev/guide/templates/event-binding) and the [Observer Pattern](https://refactoring.guru/uk/design-patterns/observer).
+## Task3
+Implement Task 2 using events/output *
 
-2. Create a new Angular service named EventService:<br>
-   `ng generate service EventService`
-
-3. **Task Steps:**<br>
-   3.1. Implement the `Observer` pattern in the `EventService`.
-
-   3.2. Create two components: `Notifier` and `Listener`.
-
-   3.3. The `Notifier` component should trigger an event using the `EventService`.
-
-   3.4. The `Listener` component should subscribe to this event and update its state accordingly.
-
-4. **Implementation Details:**<br>
-   4.1. **EventService:**<br>
-   4.1.1. Component (TypeScript):
-   ```typescript
-   import { Injectable } from '@angular/core';
-   import { Subject } from 'rxjs';
-   
-   @Injectable({
-    providedIn: 'root'
-    })
-    
-    export class EventService {
-        private eventSubject = new Subject<string>();
-        
-        emitEvent(message: string) {
-            this.eventSubject.next(message);
-            }
-            
-        getEventObservable() {
-            return this.eventSubject.asObservable();
-            }
-        }
-    ```
-
-    4.2. **SNotifier Component:**<br>
-    4.2.1. Template (HTML):<br>
-    ```html
-   <button (click)="notify()">Notify</button>
-    ```
-   
-   4.2.2. Component (TypeScript):
-   ```ts
-   import { Component } from '@angular/core';
-   import { EventService } from '../../services/event.service';
-   
-   @Component({
-    selector: 'app-notifier',
-    templateUrl: './notifier.component.html'
-    })
-    
-    export class NotifierComponent {
-        constructor(private eventService: EventService) {}
-        
-        notify() {
-            this.eventService.emitEvent('Notification triggered!');
-            }
-        }
-    ```
-    
-    4.3. **Listener Component:**<br>
-    4.3.1. Template (HTML):
-    ```html
-    <p>{{ message }}</p>
-   ```
-   4.3.2. Component (TypeScript):
-   ```ts
-   import { Component, OnInit } from '@angular/core';
-   import { EventService } from '../../services/event.service';
-   
-   @Component({
-    selector: 'app-listener',
-    templateUrl: './listener.component.html'
-    })
-    
-    export class ListenerComponent implements OnInit {
-        message = 'No notifications yet';
-        
-        constructor(private eventService: EventService) {}
-        
-        ngOnInit(): void {
-            this.eventService.getEventObservable().subscribe(msg => {
-                this.message = msg;
-                });
-            }
-        }
-    ```
-
-   4.4. Run the project to see the result:<br>
-   `ng serve`
-
-#### Expected Output:
-When the button in the **Notifier** component is clicked, the message in the **Listener** component should update to "Notification triggered!".
-
+### Description
+Implement the same solution using ngModel 
 
 # TestAng
 

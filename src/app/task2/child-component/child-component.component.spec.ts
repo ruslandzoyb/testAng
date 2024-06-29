@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PublisherComponent } from './publisher.component';
+import { ChildComponentComponent } from './child-component.component';
 
-describe('PublisherComponent', () => {
-  let component: PublisherComponent;
-  let fixture: ComponentFixture<PublisherComponent>;
+describe('ChildComponentComponent', () => {
+  let component: ChildComponentComponent;
+  let fixture: ComponentFixture<ChildComponentComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PublisherComponent]
+      imports: [ChildComponentComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(PublisherComponent);
+    fixture = TestBed.createComponent(ChildComponentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

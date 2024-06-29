@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ClickCounterComponent } from './click-counter.component';
+import { ParentComponent } from './parent.component';
 
-describe('ClickCounterComponent', () => {
-  let component: ClickCounterComponent;
-  let fixture: ComponentFixture<ClickCounterComponent>;
+describe('ParentComponent', () => {
+  let component: ParentComponent;
+  let fixture: ComponentFixture<ParentComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ClickCounterComponent]
+      imports: [ParentComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ClickCounterComponent);
+    fixture = TestBed.createComponent(ParentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,17 @@
+<div>
+    <form [formGroup]="form">
+      <input 
+        type="text" 
+        formControlName="inputText" 
+        placeholder="Enter some text" 
+      />
+      <button 
+        type="button" 
+        [disabled]="!form.valid" 
+        (click)="onButtonClick()"
+      >
+        Click Me
+      </button>
+    </form>
+  </div>
+  
