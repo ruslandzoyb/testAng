@@ -4,10 +4,16 @@
   <ul *ngIf="isDisplay">
     <li>First</li>
     <li>Sec</li>
-    <li (click)="onClick2()">Third </li>
+    <li  (click)="onClick2()">Third </li>
     <li (click)="onClick()">Fourth</li>
   </ul>
 </div>
-<input [(ngModel)]="title">
+<button #myButton></button>
+<p #message></p>
+<input  [ngClass]="{'input-border': inFocus}"
+
+(input)="onInput($event)"
+(focus)="onFocus()"
+(blur)="onBlur()" >
 
 

@@ -9,6 +9,7 @@ import { WorkExperienceApiService } from '../work-experience-api.service';
   styleUrls: ['./biography.component.css']
 })
 export class BiographyComponent implements OnInit {
+
   public workItems : WorkExperience[] = [];
 
   constructor(private experienceApiService : WorkExperienceApiService){
@@ -16,7 +17,9 @@ export class BiographyComponent implements OnInit {
   console.log(this.workItems);
   }
 
-
+  onChildClick(event : string) {
+    console.log(event);
+    }
 
   ngOnInit(): void {
 

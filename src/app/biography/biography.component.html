@@ -7,6 +7,7 @@
 
  <app-experience-info *ngFor="let info of workItems"
  [experienceInfo]="info"
+ (childClick)="onChildClick($event)"
  >
 
  </app-experience-info>

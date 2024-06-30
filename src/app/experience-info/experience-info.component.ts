@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { WorkExperience } from '../models/work-experience';
 
 @Component({
@@ -10,7 +10,13 @@ export class ExperienceInfoComponent implements OnInit {
   @Input()
   experienceInfo!: WorkExperience;
 
+  @Output() childClick = new EventEmitter<string>();
+
   ngOnInit(): void {
+  }
+
+  onClick(){
+    this.childClick.emit('Child emitted value');
   }
 
 }
